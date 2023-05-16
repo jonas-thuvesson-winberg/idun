@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/idun.esm.js"></script>
+    <script nomodule src="/build/idun.js"></script>
+
+    <style>
+      .display-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* max-width: 80%; */
+        margin: 0 auto 40px auto;
+        background: rgb(248, 248, 248);
+        /* padding: 0 40px; */
+        border-radius: 20px;
+        padding: 20px 0;
+      }
+
+      @media screen and (min-width: 768px) {
+        .display-section {
+          width: 60%;
+        }
+      }
+
+      .display-section > * {
+        margin: 20px;
+      }
+
+      .section-heading {
+        font-family: 'Courier New', Courier, monospace;
+        text-decoration: underline;
+        color: gray;
+        font-weight: bold;
+        font-size: 2em;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component> -->
+    <h1 class="section-heading">Buttons</h1>
+    <div class="display-section">
+      <idun-button id="my-click-button" label="click me!"></idun-button>
+      <idun-button id="my-hover-button" color-scheme="WhiteOrange" shadow-on-hover="false" label="hover me!"></idun-button>
+    </div>
+
+    <script>
+      document.getElementById('my-click-button').addEventListener('initialized', e => {
+        const button = e.detail;
+        button.registerClickHandler('1', () => console.log('initialized click!'));
+      });
+      // document
+      // const setup = async () => {
+      //   await customElements.whenDefined('idun-button');
+      //   const button = document.getElementById('my-click-button');
+      //   await button.registerClickHandler('clickButtonClick', () => console.log('hello world'));
+      //   await button.registerClickHandler('clickButtonClick2', () => console.log('hello underworld'));
+      //   // button.unregisterClickHandler('clickButtonClick');
+      // };
+
+      // setup();
+
+      // document.getElementById('my-click-button').addEventListener('initialized', event => {});
+
+      // document.getElementById('my-click-button').addEventListener('click', event => {
+      //   console.log(event);
+      // });
+
+      // document.getElementById('my-hover-button').addEventListener('mouseenter', event => {
+      //   console.log(event);
+      // });
+    </script>
+  </body>
+</html>
