@@ -47,14 +47,18 @@
     <h1 class="section-heading">Buttons</h1>
     <div class="display-section">
       <idun-button id="my-click-button" label="click me!"></idun-button>
-      <idun-button id="my-hover-button" color-scheme="WhiteOrange" shadow-on-hover="false" label="hover me!"></idun-button>
+      <idun-button id="my-hover-button" color-scheme="WhiteOrange" shadow-on-hover="false"></idun-button>
     </div>
 
     <script>
-      document.getElementById('my-click-button').addEventListener('initialized', e => {
-        const button = e.detail;
-        button.registerClickHandler('1', () => console.log('initialized click!'));
-      });
+      [document.getElementById('my-click-button'), document.getElementById('my-hover-button')].forEach(el =>
+        el.addEventListener('initialized', e => {
+          const button = e.detail;
+          button.onClick(() => console.log(e.target.id + ' confirm!'));
+          button.onHover(() => console.log(e.target.id + ' hover!'));
+          button.onBlur(() => console.log(e.target.id + ' blur!'));
+        }),
+      );
       // document
       // const setup = async () => {
       //   await customElements.whenDefined('idun-button');

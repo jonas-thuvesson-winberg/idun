@@ -6,16 +6,17 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ColorScheme } from "./utils/color-scheme.enum";
-import { MouseHandler } from "./components/button-component/button-component";
+import { Handler, KeyboardHandler, MouseHandler } from "./components/button-component/button-component";
 export { ColorScheme } from "./utils/color-scheme.enum";
-export { MouseHandler } from "./components/button-component/button-component";
+export { Handler, KeyboardHandler, MouseHandler } from "./components/button-component/button-component";
 export namespace Components {
     interface IdunButton {
         "colorScheme": ColorScheme;
         "label": string;
-        "registerClickHandler": (funcId: string, func: MouseHandler) => Promise<void>;
+        "onBlur": (func: MouseHandler) => Promise<void>;
+        "onClick": (func: Handler) => Promise<void>;
+        "onHover": (func: MouseHandler) => Promise<void>;
         "shadowOnHover": boolean;
-        "unregisterClickHandler": (funcId: string) => Promise<void>;
     }
     interface MyComponent {
         /**

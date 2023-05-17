@@ -1,4 +1,4 @@
-:host {
+idun-button {
   display: block;
   font-family: 'Courier New', Courier, monospace;
   --shadow-color: rgba(78, 78, 93, 0.75);
@@ -16,46 +16,54 @@ input[type='reset'] {
   outline: inherit;
 } */
 
-:host {
-  display: inline-flex;
+idun-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
   border-width: 0.2em;
   border-style: solid;
   padding: 1em 2em;
-  min-width: 10em;
-  min-height: 3.5em;
+  /* min-width: 10em;
+  min-height: 1em; */
 }
 
-:host:not(:hover) {
+idun-button > .label {
+  min-width: 4em;
+  min-height: 1em;
+}
+
+idun-button:not(:hover) {
   transition: box-shadow ease-out 0.5s;
   transition: background-color ease-out 0.5s;
 }
 
-:host:hover {
+idun-button:hover {
   transition: box-shadow ease-out 0.3s;
   transition: background-color ease-out 0.3s;
+  cursor: pointer;
 }
 
-:host.shadowed:hover {
+idun-button.shadowed:hover {
   box-shadow: 0em 0.25em 0.75em var(--shadow-color);
 }
 
-.blue-gray {
+idun-button.blue-gray {
   background: rgb(153, 153, 178);
   border-color: rgb(103, 103, 120);
   color: white;
 }
 
-.blue-gray:hover {
+idun-button.blue-gray:hover {
   background: rgb(183, 183, 214);
 }
 
-.white-orange {
+idun-button.white-orange {
   background: rgb(220, 217, 217);
   border-color: rgb(255, 170, 1);
   color: black;
 }
 
-.white-orange:hover {
+idun-button.white-orange:hover {
   background: rgb(255, 255, 255);
 }
